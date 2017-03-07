@@ -1,0 +1,8 @@
+{# empty Twig template #}
+<div class="embed-video">
+    {% if item.type == 'youtube' %}
+        <iframe
+            src="http://www.youtube.com/embed/{{ item.code }}?autoplay=1">
+        </iframe>
+    {% endif %}
+</div>

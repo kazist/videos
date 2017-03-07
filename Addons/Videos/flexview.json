@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Videos List",
+        "show_title": "1",
+        "unique_name": "videos.addons.videos",
+        "icon": "fa-user",
+        "homepage": "0",
+        "allpages": "0",
+        "extensionpages": "1",
+        "viewside": "frontend",
+        "explanation": "",
+        "description": "",
+        "suffix_content": "",
+        "prefix_content": "",
+        "main_content": "",
+        "positions": ["sidebar"],
+        "setting": [
+            {
+                "name": "limit",
+                "label": "Limit",
+                "default": "10",
+                "type": "text"
+            }
+        ]
+
+    }
+]

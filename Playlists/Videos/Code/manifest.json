@@ -1,0 +1,13 @@
+{
+    "name": "videos",
+    "title": "Playlist Videos List",
+    "explanation": "Playlist Videos List",
+    "description": "Playlist Videos List",
+    "version": 5,
+    "has_view": "0",
+    "tie_field": "0",
+    "email_on_new": "0",
+    "email_on_edit": "0",
+    "email_on_delete": "0",
+    "date_file_modified": "2016-05-23 17:52:10"
+}

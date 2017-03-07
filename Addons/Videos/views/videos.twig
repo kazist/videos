@@ -1,0 +1,25 @@
+
+{{ set_assets('applications/Videos/assets/css/video.css') }}
+
+{% set item_url = generate_url('videos.videos.detail', {'id':items.0.id})  %}
+
+{{ addTwigPath('applications.Videos.Main.Code.views') }}
+
+<div class="horizontal-videos">
+
+    {% if videos|length > 0 %}
+        {% for key,video in videos%}
+
+            <div class="col-sm-12">
+                <div class="horizontal-video">
+                    {% include 'video.include.twig' with {'video': video, 'display':'horizontal'} %}
+                    <div class='clearfix'></div>
+                </div>
+            </div>
+
+        {% endfor %}
+    {% else %}
+        No Products
+    {% endif %}
+    <div class="clearfix"></div>
+</div>

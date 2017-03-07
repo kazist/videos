@@ -1,0 +1,75 @@
+{# empty Twig template #}
+
+{{ set_assets('applications/Videos/assets/css/video.css') }}
+{{ set_assets('applications/Videos/assets/css/shortcode_timeline2.css') }}
+
+{% set item_url =generate_url('videos.videos.detail',{'id':items.0.id})  %}
+
+{{ addTwigPath('applications.Videos.Main.Code.views') }}
+
+<h1 class="component-header">All PlayList</h1>
+
+{% if playlists|length > 0  %}
+    {% for playlist in playlists %}
+
+        <div class="horizontal-videos">
+
+            <div class="heading heading-v1 headline">
+                <h3>
+                    {{ category.title }} Videos
+                </h3>
+            </div>
+
+            <ul class="timeline-v2">
+                {% if playlist.videos|length > 0  %}
+                    {% for video in playlist.videos %}
+
+                        {% set video_url = generate_url('videos.playlists.detail', {'id' : playlist.id, 'video_id' : video.id}) %}
+
+                        <li class="equal-height-columns">
+                            <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                            <div class="cbp_tmlabel equal-height-column">
+                                <div class="horizontal-video">
+
+                                    <a href="{{ video_url }}" title='{{video.title}}'>
+                                        <img src="{{ resized_image(video.image_file,100,70) }}" align='left' alt="{{ video.title|truncate(50) }}" title="{{ video.title }}" width="120px" align="left"/>
+                                    </a>
+
+                                    <b>
+                                        <a href="{{ video_url }}" title='{{video.title}}'>
+                                            {{ video.title}}
+                                        </a>
+                                    </b>
+                                    {{ video.description|striptags|raw|truncate('100')}}
+                                    <br>
+
+                                    <small>
+                                        <i class="fa fa-clock-o"></i>: Posted On: {{ video.date_created|date('d M Y') }} &nbsp;&nbsp;
+                                        <i class="fa fa-eye-slash"></i>:Total Views {{ video.hits }}
+                                    </small>
+
+                                    <div class="clear-both"></div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+
+            </ul>
+
+
+
+        </div>
+        <div class="clear-both"></div>
+
+        <center>
+            <a href="{{ generate_url('videos.categories.detail',{'id':category.id}) }}" class="btn btn-success btn-xs  ">View Category</a>
+            <a href="{{ generate_url('videos.videos',{'category_id':category.id}) }}" class="btn btn-success btn-xs  ">View  Videos</a>
+        </center>
+    {% endfor %}
+{% endif %}
+
+
+<div class="clr"></div>
+
+{% include "items.pagination.twig"%}

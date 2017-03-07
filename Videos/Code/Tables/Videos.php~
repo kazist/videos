@@ -1,0 +1,410 @@
+<?php
+
+namespace Videos\Videos\Code\Tables;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Videos
+ *
+ * @ORM\Table(name="videos_videos", indexes={@ORM\Index(name="category_id_index", columns={"category_id"})})
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
+ */
+class Videos extends \Kazist\Table\BaseTable
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    protected $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    protected $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="category_id", type="integer", length=11, nullable=true)
+     */
+    protected $category_id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="image", type="integer", length=11, nullable=true)
+     */
+    protected $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
+     */
+    protected $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
+     */
+    protected $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=255, nullable=true)
+     */
+    protected $code;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="published", type="integer", length=11, nullable=true)
+     */
+    protected $published;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="hits", type="integer", length=11, nullable=false)
+     */
+    protected $hits;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="created_by", type="integer", length=11, nullable=false)
+     */
+    protected $created_by;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_created", type="datetime", nullable=false)
+     */
+    protected $date_created;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="modified_by", type="integer", length=11, nullable=false)
+     */
+    protected $modified_by;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_modified", type="datetime", nullable=false)
+     */
+    protected $date_modified;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="featured", type="integer", length=11)
+     */
+    protected $featured;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Videos
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Videos
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set category_id
+     *
+     * @param integer $categoryId
+     * @return Videos
+     */
+    public function setCategoryId($categoryId)
+    {
+        $this->category_id = $categoryId;
+
+        return $this;
+    }
+
+    /**
+     * Get category_id
+     *
+     * @return integer 
+     */
+    public function getCategoryId()
+    {
+        return $this->category_id;
+    }
+
+    /**
+     * Set image
+     *
+     * @param integer $image
+     * @return Videos
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return integer 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Videos
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Videos
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     * @return Videos
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set published
+     *
+     * @param integer $published
+     * @return Videos
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return integer 
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * Set hits
+     *
+     * @param integer $hits
+     * @return Videos
+     */
+    public function setHits($hits)
+    {
+        $this->hits = $hits;
+
+        return $this;
+    }
+
+    /**
+     * Get hits
+     *
+     * @return integer 
+     */
+    public function getHits()
+    {
+        return $this->hits;
+    }
+
+    /**
+     * Get created_by
+     *
+     * @return integer 
+     */
+    public function getCreatedBy()
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * Get date_created
+     *
+     * @return \DateTime 
+     */
+    public function getDateCreated()
+    {
+        return $this->date_created;
+    }
+
+    /**
+     * Get modified_by
+     *
+     * @return integer 
+     */
+    public function getModifiedBy()
+    {
+        return $this->modified_by;
+    }
+
+    /**
+     * Get date_modified
+     *
+     * @return \DateTime 
+     */
+    public function getDateModified()
+    {
+        return $this->date_modified;
+    }
+
+    /**
+     * Set featured
+     *
+     * @param integer $featured
+     * @return Videos
+     */
+    public function setFeatured($featured)
+    {
+        $this->featured = $featured;
+
+        return $this;
+    }
+
+    /**
+     * Get featured
+     *
+     * @return integer 
+     */
+    public function getFeatured()
+    {
+        return $this->featured;
+    }
+    /**
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        // Add your code here
+    }
+}

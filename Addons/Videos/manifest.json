@@ -1,0 +1,10 @@
+{
+    "name": "videos",
+    "title": "Videos Listing",
+    "explanation": "Videos Listing",
+    "description": "Videos Listing",
+    "version": 1,
+    "icon": "assets\/videos\/addons\/videos\/icon.png",
+    "extension": "addon",
+    "path": "videos\/addons\/videos\/"
+}

@@ -1,0 +1,62 @@
+{# empty Twig template #}
+{% import "form.macro.twig" as forms %}
+
+{{ set_assets('applications/Videos/assets/css/video.css') }}
+
+{{ addTwigPath('applications.Videos.Main.Code.views') }}
+
+<h1 class="component-header">{{ item.title }}</h1>
+
+<div class="video-posted-date">
+    <i class="fa fa-clock-o"></i> Posted:  {{ item.date_created|date('d M Y H:i') }} &nbsp;&nbsp;
+</div>
+
+
+
+<div class="video-description">
+    {{ item.description|raw }}
+</div>
+
+{% if popular|length >0  %}
+    <div class="vertical-videos">
+        <div class="heading heading-v1 headline">
+            <h3>Polular Videos</h3>
+        </div>
+        {% for video in popular %}
+            <div class="vertical-video col-sm-4">
+
+                {% include 'video.include.twig' with {'video': video} %}
+
+            </div>
+        {% endfor %}
+
+        <div class="clearfix"></div>
+
+        <a class="btn btn-success btn-sm pull-right">View Popular Videos</a>
+
+    </div>
+{% endif %}
+
+
+
+{% if latest|length >0  %}
+    <div class="vertical-videos">
+        <div class="heading heading-v1 headline">
+            <h3>Latest Videos</h3>
+        </div>
+        {% for video in latest %}
+            <div class="vertical-video col-sm-4">
+
+                {% include 'video.include.twig' with {'video': video} %}
+
+            </div>
+        {% endfor %}
+
+        <div class="clearfix"></div>
+
+        <a class="btn btn-success btn-sm  pull-right">View Popular Videos</a>
+
+    </div>
+{% endif %}
+
+

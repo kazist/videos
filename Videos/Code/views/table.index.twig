@@ -1,0 +1,30 @@
+{# empty Twig template #}
+
+{{ set_assets('applications/Videos/assets/css/video.css') }}
+
+{{ addTwigPath('applications.Videos.Main.Code.views') }}
+
+<div class="vertical-videos">
+
+    <h1 class="component-header">Videos</h1>
+
+    {% if items|length > 0 %}
+        {% for key,video in items %}
+
+            <div class="col-sm-4">
+                <div class="vertical-video">
+                    {% include 'video.include.twig' with {'video': video} %}
+                    <div class='clearfix'></div>
+                </div>
+            </div>
+
+        {% endfor %}
+    {% else %}
+        No Videos
+    {% endif %}
+</div>
+
+
+<div class="clearfix"></div>
+
+{% include "items.pagination.twig"%}

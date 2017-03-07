@@ -1,0 +1,60 @@
+{# empty Twig template #}
+{% import "form.macro.twig" as forms %}
+
+{{ set_assets('applications/Videos/assets/css/video.css') }}
+{{ set_assets('applications/Videos/assets/css/shortcode_timeline2.css') }}
+
+{{ addTwigPath('applications.Videos.Main.Code.views') }}
+
+<h1 class="component-header">{{ item.title }}</h1>
+
+<div class="video-posted-date">
+    <i class="fa fa-clock-o"></i> Posted:  {{ item.date_created|date('d M Y H:i') }} &nbsp;&nbsp;
+</div>
+
+<div class="video-description">
+    {{ item.description|raw }}
+</div>
+
+{% include "embed_video.twig" ignore missing with {'item': video}  %}
+
+
+<ul class="timeline-v2">
+
+    {% if item.videos|length > 0  %}
+        {% for video in item.videos %}
+
+            {% set video_url = generate_url('videos.playlists.detail', {'id' : playlist.id, 'video_id' : video.id}) %}
+
+            <li class="equal-height-columns">
+                <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                <div class="cbp_tmlabel equal-height-column">
+                    <div class="horizontal-video">
+
+                        <a href="{{ video_url }}" title='{{video.title}}'>
+                            <img src="{{ resized_image(video.image_file,100,70) }}" align='left' alt="{{ video.title|truncate(50) }}" title="{{ video.title }}" width="120px" align="left"/>
+                        </a>
+
+                        <b>
+                            <a href="{{ video_url }}" title='{{video.title}}'>
+                                {{ video.title}}
+                            </a>
+                        </b>
+                        {{ video.description|striptags|raw|truncate('100')}}
+                        <br>
+
+                        <small>
+                            <i class="fa fa-clock-o"></i>: Posted On: {{ video.date_created|date('d M Y') }} &nbsp;&nbsp;
+                            <i class="fa fa-eye-slash"></i>:Total Views {{ video.hits }}
+                        </small>
+
+                        <div class="clear-both"></div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    {% endif %}
+
+</ul>
+
+

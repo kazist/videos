@@ -1,0 +1,163 @@
+{
+    "frontend": [{
+            "title": "Playlist List",
+            "description": "Management of Playlists.",
+            "controller": "Videos\\Playlists\\Code\\Controllers\\PlaylistsController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "videos.playlists",
+            "route": "videos/playlists",
+            "arguments": "",
+            "keywords": "playlist, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0,
+            "roles": {
+                "SUPER_ADMIN": ["can_view"],
+                "ADMIN": ["can_view"],
+                "MODERATOR": ["can_view"],
+                "USER": ["can_view"]
+            }
+        }, {
+            "title": "Playlist Detail: {{ item.name }}",
+            "description": "Playlist Detail: {{ item.name }}",
+            "controller": "Videos\\Playlists\\Code\\Controllers\\PlaylistsController::detailAction",
+            "unique_name": "videos.playlists.detail",
+            "route": "videos/playlists/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "playlist, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0,
+            "roles": {
+                "SUPER_ADMIN": ["can_view"],
+                "ADMIN": ["can_view"],
+                "MODERATOR": ["can_view"],
+                "USER": ["can_view"]
+            }
+        }]
+    ,
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Videos\\Playlists\\Code\\Controllers\\Admin\\PlaylistsController::taskAction",
+            "unique_name": "admin.videos.playlists.task",
+            "route": "admin/videos/playlists/task",
+            "permissions": "can_write",
+            "arguments": "",
+            "keywords": "playlists, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_write"],
+                "ADMIN": ["can_write"]
+            }
+        }, {
+            "title": "Playlist List",
+            "description": "Management of Playlists.",
+            "controller": "Videos\\Playlists\\Code\\Controllers\\Admin\\PlaylistsController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.videos.playlists",
+            "route": "admin/videos/playlists",
+            "arguments": "",
+            "keywords": "playlist, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Add Playlist",
+            "description": "Add Playlist.",
+            "controller": "Videos\\Playlists\\Code\\Controllers\\Admin\\PlaylistsController::addAction",
+            "unique_name": "admin.videos.playlists.add",
+            "route": "admin/videos/playlists/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "playlist, add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Edit Playlist {{ item.name }}",
+            "description": "Edit Playlist {{ item.name }}.",
+            "controller": "Videos\\Playlists\\Code\\Controllers\\Admin\\PlaylistsController::editAction",
+            "unique_name": "admin.videos.playlists.edit",
+            "route": "admin/videos/playlists/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "playlist, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Playlist Detail: {{ item.name }}",
+            "description": "Playlist Detail: {{ item.name }}",
+            "controller": "Videos\\Playlists\\Code\\Controllers\\Admin\\PlaylistsController::detailAction",
+            "unique_name": "admin.videos.playlists.detail",
+            "route": "admin/videos/playlists/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "playlist, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Playlist Delete: {{ item.name }}",
+            "description": "Playlist Delete: {{ item.name }}",
+            "controller": "Videos\\Playlists\\Code\\Controllers\\Admin\\PlaylistsController::deleteAction",
+            "unique_name": "admin.videos.playlists.delete",
+            "route": "admin/videos/playlists/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "playlist, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }, {
+            "title": "Playlist Save: {{ item.name }}",
+            "description": "Playlist Save: {{ item.name }}",
+            "controller": "Videos\\Playlists\\Code\\Controllers\\Admin\\PlaylistsController::saveAction",
+            "unique_name": "admin.videos.playlists.save",
+            "route": "admin/videos/playlists/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "playlist, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }]
+} 	

@@ -1,0 +1,171 @@
+{
+    "frontend": [{
+            "title": "Video List",
+            "description": "Management of Videos.",
+            "controller": "Videos\\Videos\\Code\\Controllers\\VideosController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "videos.videos",
+            "route": "videos/videos",
+            "seo_url": "videos",
+            "arguments": "",
+            "keywords": "video, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"],
+                "MODERATOR": ["can_view", "can_viewown"],
+                "USER": ["can_view", "can_viewown"]
+            }
+
+        }, {
+            "title": "Video Detail: {{ item.name }}",
+            "description": "Video Detail: {{ item.name }}",
+            "controller": "Videos\\Videos\\Code\\Controllers\\VideosController::detailAction",
+            "unique_name": "videos.videos.detail",
+            "route": "videos/videos/detail/{id}",
+            "permissions": "can_view, can_viewown",
+               "seo_url": "videos/{slug}",
+            "arguments": {
+                "id": null
+            },
+            "seo_arguments": {
+                "slug": null
+            },
+            "keywords": "video, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"],
+                "MODERATOR": ["can_view", "can_viewown"],
+                "USER": ["can_view", "can_viewown"]
+            }
+
+
+        }]
+    ,
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Videos\\Videos\\Code\\Controllers\\Admin\\VideosController::taskAction",
+            "unique_name": "admin.videos.videos.task",
+            "route": "admin/videos/videos/task",
+            "permissions": "can_write",
+            "arguments": "",
+            "keywords": "videos, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_write"],
+                "ADMIN": ["can_write"]
+            }
+        }, {
+            "title": "Video List",
+            "description": "Management of Videos.",
+            "controller": "Videos\\Videos\\Code\\Controllers\\Admin\\VideosController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.videos.videos",
+            "route": "admin/videos/videos",
+            "arguments": "",
+            "keywords": "video, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Add Video  ",
+            "description": "Add Video .",
+            "controller": "Videos\\Videos\\Code\\Controllers\\Admin\\VideosController::addAction",
+            "unique_name": "admin.videos.videos.add",
+            "route": "admin/videos/videos/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "video, add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Edit Video {{ item.name }}",
+            "description": "Edit Video {{ item.name }}.",
+            "controller": "Videos\\Videos\\Code\\Controllers\\Admin\\VideosController::editAction",
+            "unique_name": "admin.videos.videos.edit",
+            "route": "admin/videos/videos/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "video, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Video Detail: {{ item.name }}",
+            "description": "Video Detail: {{ item.name }}",
+            "controller": "Videos\\Videos\\Code\\Controllers\\Admin\\VideosController::detailAction",
+            "unique_name": "admin.videos.videos.detail",
+            "route": "admin/videos/videos/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "video, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Video Delete: {{ item.name }}",
+            "description": "Video Delete: {{ item.name }}",
+            "controller": "Videos\\Videos\\Code\\Controllers\\Admin\\VideosController::deleteAction",
+            "unique_name": "admin.videos.videos.delete",
+            "route": "admin/videos/videos/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "video, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }, {
+            "title": "Video Save: {{ item.name }}",
+            "description": "Video Save: {{ item.name }}",
+            "controller": "Videos\\Videos\\Code\\Controllers\\Admin\\VideosController::saveAction",
+            "unique_name": "admin.videos.videos.save",
+            "route": "admin/videos/videos/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "video, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }]
+} 	

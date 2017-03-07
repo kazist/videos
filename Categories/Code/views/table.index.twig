@@ -1,0 +1,44 @@
+{# empty Twig template #}
+
+{{ set_assets('applications/Videos/assets/css/video.css') }}
+
+{% set item_url =generate_url('videos.videos.detail',{'id':items.0.id})  %}
+
+{{ addTwigPath('applications.Videos.Main.Code.views') }}
+
+<h1 class="component-header">All Videos Categories</h1>
+
+{% if categories|length > 0  %}
+    {% for category in categories %}
+
+        <div class="horizontal-videos">
+
+            <div class="heading heading-v1 headline">
+                <h3>
+                    {{ category.title }} Videos
+                </h3>
+            </div>
+
+            {% if category.videos|length > 0  %}
+                {% for video in category.videos %}
+                    <div class="horizontal-video col-sm-6">
+                        {% include 'video.include.twig' with {'video': video, 'display':'horizontal'} %}
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+
+        </div>
+        <div class="clearfix"></div>
+
+        <center>
+            <a href="{{ generate_url('videos.categories.detail',{'id':category.id}) }}" class="btn btn-success btn-xs  ">View Category</a>
+            <a href="{{ generate_url('videos.videos',{'category_id':category.id}) }}" class="btn btn-success btn-xs  ">View  Videos</a>
+        </center>
+    {% endfor %}
+{% endif %}
+
+
+<div class="clr"></div>
+
+{% include "items.pagination.twig"%}

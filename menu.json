@@ -1,0 +1,24 @@
+{
+    "title": "Videos",
+    "description": "Videos Advertisement",
+    "alias": "videos",
+    "icon": "fa-picture-o",
+    "home_link": "videos\/videos",
+    "is_core": "1",
+    "menulist": [{
+            "title": "Videos",
+            "alias": "admin_videos_videos",
+            "url": "admin/videos/videos",
+            "children": []
+        }, {
+            "title": "Categories",
+            "alias": "admin_videos_categories",
+            "url": "admin/videos/categories",
+            "children": []
+        }, {
+            "title": "Playlist",
+            "alias": "admin_videos_playlists",
+            "url": "admin/videos/playlists",
+            "children": []
+        }]
+}

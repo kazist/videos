@@ -1,0 +1,9 @@
+
+{
+    "name": "videos",
+    "title": "Videos Listing",
+    "icon": "icons\/videos.png",
+    "extension": "component",
+    "path": "videos\/",
+    "description": "Videos Listing"
+}

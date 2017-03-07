@@ -1,0 +1,22 @@
+{
+    "VideosVideos": {
+        "namespace": "Videos\\Videos",
+        "controller": "VideosController"
+    },
+    "VideosCategories": {
+        "namespace": "Videos\\Categories",
+        "controller": "CategoriesController"
+    },
+    "VideosPlaylists": {
+        "namespace": "Videos\\Playlists",
+        "controller": "PlaylistsController"
+    },
+    "VideosPlaylistsVideos": {
+        "namespace": "Videos\\Playlists\\Videos",
+        "controller": "VideosController"
+    },
+    "VideosVideosWatch": {
+        "namespace": "Videos\\Videos\\Watch",
+        "controller": "WatchController"
+    }
+}

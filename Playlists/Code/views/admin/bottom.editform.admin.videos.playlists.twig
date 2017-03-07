@@ -1,0 +1,88 @@
+{# empty Twig template #}
+
+{% import "form.macro.twig" as forms %}
+
+{% if item.id  %}
+
+    {% set parameters = {'playlist_id':item.id} %}
+
+    {% set autocomplete_setting = callFunction( "Videos.Playlists.Code.Models.PlaylistsModel", 'getVideoAutoCompleteSetting' ) %}
+    {% set videos = callFunction( "Videos.Playlists.Code.Models.PlaylistsModel", 'getPlaylistVideos', parameters ) %}
+
+    <div class="col-sm-6">
+
+        <h5>Search Video</h5>
+
+        <div>
+            <div class="col-sm-8">
+                {{ forms.input('videoseach', 'autocomplete', null, null, null, null, null, null, null, autocomplete_setting) }}
+            </div>
+            <div class="col-sm-4">
+                <a class="btn btn-primary btn-sm btn-flat add-video-to-playlist"> Add Videos To PlayList </a>
+            </div>
+        </div>
+
+        <table class="table table-condensed video_list">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if videos|length > 0 %}
+                    {% for video in videos %}
+                        <tr>
+                            <td>
+                                {{ video.video_id_title }}
+                                <input type="hidden" name="form[videos][exist][]" value="{{ video.video_id }}" >
+                            </td>
+                            <td><a class='btn btn-danger btn-xs delete-tr-videosearch'><i class='fa fa-close'></i></a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="clearfix"></div>
+{% endif %}
+
+<script>
+    jQuery(document).ready(function () {
+
+        jQuery('.delete-tr-videosearch').click(function () {
+            deleteTrVideoSearch(jQuery(this));
+        });
+
+        jQuery('.add-video-to-playlist').click(function () {
+
+            var title = jQuery('#videoseach_autocomplete').val();
+            var id = jQuery('#videoseach').val();
+
+            var html = " <tr>" +
+                    " <td>" + title + "<input type=\"hidden\" name=\"form[videos][new][]\" value=\"" + id + "\" ></td>" +
+                    " <td>" +
+                    "<a class='btn btn-danger btn-xs delete-tr-videosearch'><i class='fa fa-close'></i></a>"
+                    + "</td>" +
+                    " </tr>";
+
+            html = jQuery(html);
+
+            html.find('.delete-tr-videosearch').click(function () {
+                deleteTrVideoSearch(jQuery(this));
+            });
+
+            jQuery('.video_list tbody').append(html);
+
+        });
+    });
+
+    function deleteTrVideoSearch(this_element) {
+        this_element.closest('tr').remove();
+    }
+
+
+</script>
+

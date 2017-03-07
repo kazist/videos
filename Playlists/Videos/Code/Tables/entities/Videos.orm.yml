@@ -1,0 +1,48 @@
+Videos\Playlists\Videos\Code\Tables\Videos:
+  table: videos_playlists_videos
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    playlist_id:
+      name: playlist_id
+      type: integer
+      length: 11
+      nullable: false
+    video_id:
+      name: video_id
+      type: integer
+      length: 11
+      nullable: false
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    playlist_id_index:
+      columns: [playlist_id]
+    video_id_index:
+      columns: [video_id]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

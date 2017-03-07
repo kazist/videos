@@ -1,0 +1,25 @@
+{# empty Twig template #}
+{% import "form.macro.twig" as forms %}
+
+{{ set_assets('applications/Videos/assets/css/video.css') }}
+
+{{ addTwigPath('applications.Videos.Main.Code.views') }}
+
+<h1 class="component-header">{{ item.title }}</h1>
+
+<div class="video-posted-date">
+    <i class="fa fa-clock-o"></i> Posted:  {{ item.date_created|date('d M Y H:i') }} &nbsp;&nbsp;
+</div>
+
+
+{% include "embed_video.twig" ignore missing with {'item': item, 'height' : 300}  %}
+
+<div class="video-description">
+    {{ item.description|raw }}
+</div>
+
+<div>
+    <h3> Comments </h3>
+    {{ forms.input('comments','comment')}}
+</div>
+
