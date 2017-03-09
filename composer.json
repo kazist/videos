@@ -1,0 +1,15 @@
+{
+    "name": "kazist/videos",
+    "description": "Kazist Videos Manager.",
+    "keywords": ["kazist", "video manager"],
+    "homepage": "https://github.com/kazist/videos",
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "Dedan Irungu",
+            "email": "info@emshyinnovate.com",
+            "homepage": "http://emshyinnovate.com",
+            "role": "Founder & Developer"
+        }
+    ]
+}
