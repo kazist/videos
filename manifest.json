@@ -1,9 +1,9 @@
 
 {
-    "name": "videos",
+    "name": "kazist/videos",
     "title": "Videos Listing",
     "icon": "icons\/videos.png",
     "extension": "component",
-    "path": "videos\/",
+    "path": "applications/Videos/",
     "description": "Videos Listing"
 }
