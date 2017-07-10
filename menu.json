@@ -2,23 +2,26 @@
     "title": "Videos",
     "description": "Videos Advertisement",
     "alias": "videos",
-    "icon": "fa-picture-o",
+    "icon": "fa fa-video-camera",
     "home_link": "videos\/videos",
     "is_core": "1",
     "menulist": [{
             "title": "Videos",
             "alias": "admin_videos_videos",
             "url": "admin/videos/videos",
+            "icon": "fa fa-video-camera",
             "children": []
         }, {
             "title": "Categories",
             "alias": "admin_videos_categories",
             "url": "admin/videos/categories",
+              "icon": "fa fa-navicon",
             "children": []
         }, {
             "title": "Playlist",
             "alias": "admin_videos_playlists",
             "url": "admin/videos/playlists",
+                "icon": "fa fa-tasks",
             "children": []
         }]
 }
