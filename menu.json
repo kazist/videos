@@ -4,6 +4,7 @@
     "alias": "videos",
     "icon": "fa fa-video-camera",
     "home_link": "videos\/videos",
+    "path": "applications/Videos",
     "is_core": "1",
     "menulist": [{
             "title": "Videos",
@@ -15,13 +16,13 @@
             "title": "Categories",
             "alias": "admin_videos_categories",
             "url": "admin/videos/categories",
-              "icon": "fa fa-navicon",
+            "icon": "fa fa-navicon",
             "children": []
         }, {
             "title": "Playlist",
             "alias": "admin_videos_playlists",
             "url": "admin/videos/playlists",
-                "icon": "fa fa-tasks",
+            "icon": "fa fa-tasks",
             "children": []
         }]
 }
