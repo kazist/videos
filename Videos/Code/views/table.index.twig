@@ -1,21 +1,39 @@
 {# empty Twig template #}
 
-{{ set_assets('applications/Videos/assets/css/video.css') }}
-
-{{ addTwigPath('applications.Videos.Main.Code.views') }}
+{{ set_assets('applications/Videos/assets/css/item.css') }}
 
 <div class="vertical-videos">
 
     <h1 class="component-header">Videos</h1>
 
     {% if items|length > 0 %}
-        {% for key,video in items %}
+        {% for key,item in items %}
+            
+   {% set video_url = generate_url('videos.videos.detail', {'id' : item.id, 'video_id' : item.id}) %}
 
             <div class="col-sm-4">
-                <div class="vertical-video">
-                    {% include 'video.include.twig' with {'video': video} %}
-                    <div class='clearfix'></div>
+                <div class="horizontal-video">
+
+                    <a href="{{ video_url }}" title='{{item.title}}'>
+                        <img src="{{ resized_image(item.image_file,100,70) }}" align='left' alt="{{ item.title|truncate(50) }}" title="{{ item.title }}" width="120px" align="left"/>
+                    </a>
+
+                    <b>
+                        <a href="{{ video_url }}" title='{{item.title}}'>
+                            {{ item.title}}
+                        </a>
+                    </b>
+                    {{ item.description|striptags|raw|truncate('100')}}
+                    <br>
+
+                    <small>
+                        <i class="fa fa-clock-o"></i>: Posted On: {{ item.date_created|date('d M Y') }} &nbsp;&nbsp;
+                        <i class="fa fa-eye-slash"></i>:Total Views {{ item.hits }}
+                    </small>
+
+                    <div class="clearfix"></div>
                 </div>
+                <div class='clearfix'></div>
             </div>
 
         {% endfor %}

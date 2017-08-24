@@ -3,16 +3,33 @@
 
 {% set item_url = generate_url('videos.videos.detail', {'id':items.0.id})  %}
 
-{{ addTwigPath('applications.Videos.Main.Code.views') }}
-
 <div class="horizontal-videos">
 
     {% if videos|length > 0 %}
-        {% for key,video in videos%}
+        {% for key,item in videos%}
+
+            {% set video_url = generate_url('videos.videos.detail', {'id' : item.id}) %}
 
             <div class="col-sm-12">
                 <div class="horizontal-video">
-                    {% include 'video.include.twig' with {'video': video, 'display':'horizontal'} %}
+
+                    <a href="{{ video_url }}" title='{{item.title}}'>
+                        <img src="{{ resized_image(item.image_file,100,70) }}" align='left' alt="{{ item.title|truncate(50) }}" title="{{ item.title }}" width="120px" align="left"/>
+                    </a>
+
+                    <b>
+                        <a href="{{ video_url }}" title='{{item.title}}'>
+                            {{ item.title}}
+                        </a>
+                    </b>
+                    {{ item.description|striptags|raw|truncate('100')}}
+                    <br>
+
+                    <small>
+                        <i class="fa fa-clock-o"></i>: Posted On: {{ item.date_created|date('d M Y') }} &nbsp;&nbsp;
+                        <i class="fa fa-eye-slash"></i>:Total Views {{ item.hits }}
+                    </small>
+
                     <div class='clearfix'></div>
                 </div>
             </div>

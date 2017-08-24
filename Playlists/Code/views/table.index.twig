@@ -3,9 +3,8 @@
 {{ set_assets('applications/Videos/assets/css/video.css') }}
 {{ set_assets('applications/Videos/assets/css/shortcode_timeline2.css') }}
 
-{% set item_url =generate_url('videos.videos.detail',{'id':items.0.id})  %}
+{% set item_url =generate_url('videos.videos.detail', {'id':items.0.id})  %}
 
-{{ addTwigPath('applications.Videos.Main.Code.views') }}
 
 <h1 class="component-header">All PlayList</h1>
 
@@ -62,10 +61,6 @@
         </div>
         <div class="clearfix"></div>
 
-        <center>
-            <a href="{{ generate_url('videos.categories.detail',{'id':category.id}) }}" class="btn btn-success btn-xs  ">View Category</a>
-            <a href="{{ generate_url('videos.videos',{'category_id':category.id}) }}" class="btn btn-success btn-xs  ">View  Videos</a>
-        </center>
     {% endfor %}
 {% endif %}
 
