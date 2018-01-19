@@ -2,6 +2,7 @@
 <div class="embed-video">
     {% if item.type == 'youtube' %}
         <iframe
+            height ="{{ height }}"
             src="http://www.youtube.com/embed/{{ item.code }}?autoplay=1">
         </iframe>
     {% endif %}

@@ -14,7 +14,7 @@
                 <div class="horizontal-video">
 
                     <a href="{{ video_url }}" title='{{item.title}}'>
-                        <img src="{{ resized_image(item.image_file,100,70) }}" align='left' alt="{{ item.title|truncate(50) }}" title="{{ item.title }}" width="120px" align="left"/>
+                        <img src="{{ resized_image(item.image_file,100,70) }}" align='left' alt="{{ item.title|truncate(50) }}" title="{{ item.title }}" width="120px" align="left" style="width:120px !important;"/>
                     </a>
 
                     <b>
@@ -22,12 +22,11 @@
                             {{ item.title}}
                         </a>
                     </b>
-                    {{ item.description|striptags|raw|truncate('100')}}
                     <br>
 
                     <small>
-                        <i class="fa fa-clock-o"></i>: Posted On: {{ item.date_created|date('d M Y') }} &nbsp;&nbsp;
-                        <i class="fa fa-eye-slash"></i>:Total Views {{ item.hits }}
+                        <i class="fa fa-clock-o"></i> Added: {{ item.date_created|date('d M Y') }} &nbsp;&nbsp;
+                        <i class="fa fa-eye-slash"></i> Views: {{ item.hits }}
                     </small>
 
                     <div class='clearfix'></div>

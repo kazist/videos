@@ -11,7 +11,7 @@
             
    {% set video_url = generate_url('videos.videos.detail', {'id' : item.id, 'video_id' : item.id}) %}
 
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="horizontal-video">
 
                     <a href="{{ video_url }}" title='{{item.title}}'>
@@ -25,10 +25,11 @@
                     </b>
                     {{ item.description|striptags|raw|truncate('100')}}
                     <br>
+                    <div class="clearfix"></div>
 
                     <small>
-                        <i class="fa fa-clock-o"></i>: Posted On: {{ item.date_created|date('d M Y') }} &nbsp;&nbsp;
-                        <i class="fa fa-eye-slash"></i>:Total Views {{ item.hits }}
+                        <i class="fa fa-clock-o"></i> Added: {{ item.date_created|date('d M Y') }} &nbsp;&nbsp;
+                        <i class="fa fa-eye-slash"></i> Views: {{ item.hits }}
                     </small>
 
                     <div class="clearfix"></div>
