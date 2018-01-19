@@ -18,8 +18,9 @@
     {{ item.description|raw }}
 </div>
 
+
 <div>
     <h3> Comments </h3>
-    {{ forms.input('comments','comment')}}
+    {{ include('videos.comments.twig') }} 
 </div>
 
